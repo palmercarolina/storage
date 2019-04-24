@@ -1,0 +1,2874 @@
+<!DOCTYPE html>
+<html class="ods_16564d7a-f355-40a7-a28a-357ec214b7b2" lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8"/>
+<meta content="SAS 9.4" name="generator"/>
+<title>Results: Linear Regression</title>
+<style>
+/*<![CDATA[*/
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.c section > table, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.c section > pre, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.c div > table,
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.c div > pre, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.c article > table, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.c article > pre,
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.j section > table, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.j section > pre, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.j div > table,
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.j div > pre, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.j article > table, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.j article > pre,
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.c p.note, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.c p.warning, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.c p.error, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.c p.fatal,
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.j p.note, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.j p.warning, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.j p.error, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.j p.fatal,
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.c > table.layoutcontainer, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body.j > table.layoutcontainer { margin-left: auto; margin-right: auto }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.l table, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.l pre, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.l p.note,
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.l p.warning, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.l p.error, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.l p.fatal { margin-left: 0 }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.c table, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.c pre, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.c p.note,
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.c p.warning, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.c p.error, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.c p.fatal { margin-left: auto; margin-right: auto }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.r table, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.r pre, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.r p.note,
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.r table, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.r pre, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.r p.note,
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.r p.warning, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.r p.error, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion.r p.fatal { margin-right: 0 }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 article, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 aside, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 details, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 figcaption, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 figure, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 footer, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 header, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 hgroup, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 nav, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 section { display: block }
+html.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 { font-size: 100% }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body { margin: 1em; font-size: 13px; line-height: 1.231 }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 sup { position: relative; vertical-align: baseline; bottom: 0.25em; font-size: 0.8em }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 sub { position: relative; vertical-align: baseline; top: 0.25em; font-size: 0.8em }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 ul, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 ol { margin: 1em 0; padding: 0 0 0 40px }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 dd { margin: 0 0 0 40px }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 nav ul, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0 }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 img { border: 0; vertical-align: middle }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 svg:not(:root) { overflow: hidden }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 figure { margin: 0 }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 table { border-collapse: collapse; border-spacing: 0 }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutcontainer { border-collapse: separate; border-spacing: 0 }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 p { margin-top: 0; text-align: left }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 h1.heading1 { text-align: left }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 h2.heading2 { text-align: left }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 h3.heading3 { text-align: left }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 h4.heading4 { text-align: left }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 h5.heading5 { text-align: left }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 h6.heading6 { text-align: left }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 span { text-align: left }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 table { margin-bottom: 1em }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 td, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 th { text-align: left; padding: 3px 6px; vertical-align: top }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 td[class$="fixed"], .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 th[class$="fixed"] { white-space: pre }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 section, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 article { padding-top: 1px; padding-bottom: 8px }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 hr.pagebreak { height: 0px; border: 0; border-bottom: 1px solid #c0c0c0; margin: 1em 0 }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .stacked-value { text-align: left; display: block }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .stacked-cell > .stacked-value, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 td.data > td.data, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 th.data > td.data, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 th.data > th.data, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 td.data > th.data, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 th.header > th.header { border: 0 }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .stacked-cell > div.data { border-width: 0 }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systitleandfootercontainer { white-space: nowrap; margin-bottom: 1em }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systitleandfootercontainer > p { margin: 0 }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systitleandfootercontainer > p > span { display: inline-block; width: 100%; white-space: normal }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .batch { display: table }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .toc { display: none }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .proc_note_group, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .proc_title_group { margin-bottom: 1em }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 p.proctitle { margin: 0 }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 p.note, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 p.warning, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 p.error, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 p.fatal { display: table }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .notebanner, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .warnbanner, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .errorbanner, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .fatalbanner,
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .notecontent, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .warncontent, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .errorcontent, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .fatalcontent { display: table-cell; padding: 0.5em }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .notebanner, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .warnbanner, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .errorbanner, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .fatalbanner { padding-right: 0 }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body > div > ol li { text-align: left }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .c { text-align: center }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .r { text-align: right }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .l { text-align: left }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .j { text-align: justify }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .d { text-align: right }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .b { vertical-align: bottom }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .m { vertical-align: middle }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .t { vertical-align: top }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 a:active { color: #800080 }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .aftercaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    padding-top: 4pt;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .batch > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .batch > tbody, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .batch > thead, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .batch > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .batch { border: hidden; }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .batch {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: 'SAS Monospace', 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    padding: 7px;
+    }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .beforecaption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .body {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .bodydate {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: right;
+    vertical-align: top;
+    width: 100%;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .bycontentfolder {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .byline {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .bylinecontainer > col, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .bylinecontainer > colgroup > col, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .bylinecontainer > colgroup, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .bylinecontainer > tr, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .bylinecontainer > * > tr, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .bylinecontainer > thead, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .bylinecontainer > tbody, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .bylinecontainer > tfoot { border: none; }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .bylinecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .caption {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .cell, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .container {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .contentfolder, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .contentitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .contentproclabel, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .contentprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .contents {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .contentsdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .contenttitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .continued {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    width: 100%;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .data, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .dataemphasis {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .dataemphasisfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .dataempty {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .datafixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .datastrong {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .datastrongfixed {
+    background-color: #ffffff;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .date {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .document {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .errorbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .errorcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .errorcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .extendedpage {
+    background-color: #fafbfe;
+    border-style: solid;
+    border-width: 1pt;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .fatalbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .fatalcontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .fatalcontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .folderaction {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .footer {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .footeremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .footeremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .footerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .footerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .footerstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .footerstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .frame {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .graph > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .graph > tbody, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .graph > thead, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .graph > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .graph { border: hidden; }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .graph {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .header {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .headeremphasis {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .headeremphasisfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .headerempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .headerfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .headersandfooters {
+    background-color: #edf2f9;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .headerstrong {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .headerstrongfixed {
+    background-color: #d8dbd3;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #000000;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .heading1, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .heading2, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .heading3, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .heading4, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .heading5, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .heading6 { font-family: Arial, Helvetica, sans-serif }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .index {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .indexaction, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .indexitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .indexprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .indextitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutcontainer, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .layoutregion {
+    border-width: 0;
+    border-spacing: 30px;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .linecontent {
+    background-color: #fafbfe;
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 a:link { color: #0000ff }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .list {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .list10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .list2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .list3, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .list4, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .list5, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .list6, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .list7, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .list8, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .list9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .listitem {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: disc;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .listitem10 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .listitem2 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: circle;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .listitem3, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .listitem4, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .listitem5, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .listitem6, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .listitem7, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .listitem8, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .listitem9 {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: square;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .note {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .notebanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .notecontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .notecontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .output > colgroup {
+    border-left: 1px solid #c1c1c1;
+    border-right: 1px solid #c1c1c1;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .output > tbody, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .output > thead, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .output > tfoot {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 1px solid #c1c1c1;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .output { border: hidden; }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .output {
+    background-color: #fafbfe;
+    border: 1px solid #c1c1c1;
+    border-collapse: separate;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .pageno {
+    background-color: #fafbfe;
+    border-spacing: 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    text-align: right;
+    vertical-align: top;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .pages {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: decimal;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .pagesdate {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .pagesitem {
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    list-style-type: none;
+    margin-left: 6pt;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .pagesproclabel, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .pagesprocname {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .pagestitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .paragraph {
+    background-color: #fafbfe;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .parskip > col, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .parskip > colgroup > col, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .parskip > colgroup, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .parskip > tr, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .parskip > * > tr, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .parskip > thead, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .parskip > tbody, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .parskip > tfoot { border: none; }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .parskip {
+    border: none;
+    border-spacing: 0;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+    }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .prepage {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    text-align: left;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .proctitle {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .proctitlefixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .rowfooter {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .rowfooteremphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .rowfooteremphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .rowfooterempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .rowfooterfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .rowfooterstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .rowfooterstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .rowheader {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .rowheaderemphasis {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .rowheaderemphasisfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: italic;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .rowheaderempty {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .rowheaderfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .rowheaderstrong {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .rowheaderstrongfixed {
+    background-color: #edf2f9;
+    border-color: #b0b7bb;
+    border-style: solid;
+    border-width: 0 1px 1px 0;
+    color: #112277;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemfooter, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemfooter10, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemfooter2, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemfooter3, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemfooter4, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemfooter5, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemfooter6, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemfooter7, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemfooter8, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemfooter9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemtitle, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemtitle10, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemtitle2, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemtitle3, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemtitle4, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemtitle5, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemtitle6, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemtitle7, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemtitle8, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systemtitle9 {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systitleandfootercontainer > col, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systitleandfootercontainer > colgroup > col, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systitleandfootercontainer > colgroup, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systitleandfootercontainer > tr, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systitleandfootercontainer > * > tr, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systitleandfootercontainer > thead, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systitleandfootercontainer > tbody, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systitleandfootercontainer > tfoot { border: none; }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .systitleandfootercontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .table > col, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .table > colgroup > col {
+    border-left: 1px solid #c1c1c1;
+    border-right: 0 solid #c1c1c1;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .table > tr, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .table > * > tr {
+    border-top: 1px solid #c1c1c1;
+    border-bottom: 0 solid #c1c1c1;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .table { border: hidden; }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .table {
+    border-color: #c1c1c1;
+    border-style: solid;
+    border-width: 1px 0 0 1px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .titleandnotecontainer > col, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .titleandnotecontainer > colgroup > col, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .titleandnotecontainer > colgroup, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .titleandnotecontainer > tr, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .titleandnotecontainer > * > tr, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .titleandnotecontainer > thead, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .titleandnotecontainer > tbody, .ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .titleandnotecontainer > tfoot { border: none; }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .titleandnotecontainer {
+    background-color: #fafbfe;
+    border: none;
+    border-spacing: 1px;
+    color: #000000;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+    width: 100%;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .titlesandfooters {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .usertext {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 a:visited { color: #800080 }
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .warnbanner {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: bold;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .warncontent {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: Arial, 'Albany AMT', Helvetica, Helv;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+.ods_16564d7a-f355-40a7-a28a-357ec214b7b2 .warncontentfixed {
+    background-color: #fafbfe;
+    color: #112277;
+    font-family: 'Courier New', Courier;
+    font-size: x-small;
+    font-style: normal;
+    font-weight: normal;
+}
+/*]]>*/
+</style>
+</head>
+<body class="body">
+<div id="div_16564d7a-f355-40a7-a28a-357ec214b7b2" class="c body">
+<h1 class="body toc">Results: Linear Regression</h1>
+<section data-name="GLMSelect" data-sec-type="proc">
+<h1 class="contentprocname toc">The GLMSelect Procedure</h1>
+<article id="IDX" aria-label="Model Information">
+<h1 class="contentitem toc">Model Information</h1>
+<table class="table" style="border-spacing: 0" aria-label="Model Information">
+<caption aria-label="Model Information"></caption>
+<colgroup><col/><col/></colgroup>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">Data Set</th>
+<td class="r data">MYLIB.RENT</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Dependent Variable</th>
+<td class="r data">CURRENT_MONTHLY_RENT</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Selection Method</th>
+<td class="r data">None</td>
+</tr>
+</tbody>
+</table>
+</article>
+<article id="IDX1" aria-label="Number of Observations">
+<h1 class="contentitem toc">Number of Observations</h1>
+<table class="table" style="border-spacing: 0" aria-label="Number of Observations">
+<caption aria-label="Number of Observations"></caption>
+<colgroup><col/><col/></colgroup>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">Number of Observations Read</th>
+<td class="r data">23749</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Number of Observations Used</th>
+<td class="r data">23749</td>
+</tr>
+</tbody>
+</table>
+</article>
+<article id="IDX2" aria-label="Class Level Information">
+<h1 class="contentitem toc">Class Level Information</h1>
+<table class="table" style="border-spacing: 0" aria-label="Class Level Information">
+<caption aria-label="Class Level Information"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="3" scope="colgroup">Class Level Information</th>
+</tr>
+<tr>
+<th class="b header" scope="col">Class</th>
+<th class="r b header" scope="col">Levels</th>
+<th class="b header" scope="col">Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY _REGION&apos;</th>
+<td class="r data">4</td>
+<td class="data">Chelsea Downtown Eastside Westside</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE</th>
+<td class="r data">4</td>
+<td class="data">Bottom_Closet Middle_Closet Regular_Room Top_Closet</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">MEDIA_CHANNEL</th>
+<td class="r data">7</td>
+<td class="data">MMS_WEB_SITE NEW_YORK_TIMES OTHER SAW_SIGNS_/_BILLBOARDS TENANT_REFERRAL VAL_PAK YELLOW_PAGES</td>
+</tr>
+</tbody>
+</table>
+</article>
+<article id="IDX3" aria-label="Dimensions">
+<h1 class="contentitem toc">Dimensions</h1>
+<table class="table" style="border-spacing: 0" aria-label="Dimensions">
+<caption aria-label="Dimensions"></caption>
+<colgroup><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="2" scope="colgroup">Dimensions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">Number of Effects</th>
+<td class="r data">8</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Number of Parameters</th>
+<td class="r data">184</td>
+</tr>
+</tbody>
+</table>
+</article>
+<hr class="pagebreak"/>
+<section id="IDX4">
+<h1 class="contentfolder toc">Model Building Summary</h1>
+<article aria-label="Least Squares Summary">
+<h1 class="contentitem toc">Least Squares Summary</h1>
+<table class="table" style="border-spacing: 0" aria-label="Least Squares Summary">
+<caption aria-label="Least Squares Summary"></caption>
+<colgroup><col/><col/></colgroup><colgroup><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="5" scope="colgroup">Least Squares Summary</th>
+</tr>
+<tr>
+<th class="r b header" scope="col">Step</th>
+<th class="b header" scope="col">Effect<br/>Entered</th>
+<th class="r b header" scope="col">Number<br/>Effects In</th>
+<th class="r b header" scope="col">Number<br/>Parms In</th>
+<th class="r b header" scope="col">SBC</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<th class="c b footer" colspan="5">*&#160;Optimal&#160;Value&#160;of&#160;Criterion</th>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<th class="r rowheader" scope="row">0</th>
+<th class="rowheader" scope="row">Intercept</th>
+<td class="r data">1</td>
+<td class="r data">1</td>
+<td class="r data">228418.268</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">1</th>
+<th class="rowheader" scope="row">&apos;FACILITY _REGION&apos;</th>
+<td class="r data">2</td>
+<td class="r data">4</td>
+<td class="r data">227400.012</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">2</th>
+<th class="rowheader" scope="row">ROOM_TYPE</th>
+<td class="r data">3</td>
+<td class="r data">7</td>
+<td class="r data">221841.731</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">3</th>
+<th class="rowheader" scope="row">MEDIA_CHANNEL</th>
+<td class="r data">4</td>
+<td class="r data">13</td>
+<td class="r data">221791.290</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">4</th>
+<th class="rowheader" scope="row">&apos;FACILITY *ROOM_TYPE</th>
+<td class="r data">5</td>
+<td class="r data">21</td>
+<td class="r data">221583.271*</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">5</th>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN</th>
+<td class="r data">6</td>
+<td class="r data">39</td>
+<td class="r data">221714.136</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">6</th>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN</th>
+<td class="r data">7</td>
+<td class="r data">56</td>
+<td class="r data">221840.806</td>
+</tr>
+<tr>
+<th class="r rowheader" scope="row">7</th>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_</th>
+<td class="r data">8</td>
+<td class="r data">98</td>
+<td class="r data">222248.559</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+<hr class="pagebreak"/>
+<div id="IDX5" class="proc_title_group">
+<p class="c proctitle">Least Squares Model (No Selection)</p>
+</div>
+<section>
+<h1 class="contentfolder toc">Full Model</h1>
+<article aria-label="ANOVA">
+<h1 class="contentitem toc">ANOVA</h1>
+<table class="table" style="border-spacing: 0" aria-label="ANOVA">
+<caption aria-label="ANOVA"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="6" scope="colgroup">Analysis of Variance</th>
+</tr>
+<tr>
+<th class="b header" scope="col">Source</th>
+<th class="r b header" scope="col">DF</th>
+<th class="r b header" scope="col">Sum of<br/>Squares</th>
+<th class="r b header" scope="col">Mean<br/>Square</th>
+<th class="r b header" scope="col">F Value</th>
+<th class="r b header" scope="col">Pr&#160;&gt;&#160;F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">Model</th>
+<td class="r data">97</td>
+<td class="r data">92742988</td>
+<td class="r data">956113</td>
+<td class="r data">85.61</td>
+<td class="r data">&lt;.0001</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Error</th>
+<td class="r data">23651</td>
+<td class="r data">264128999</td>
+<td class="r data">11168</td>
+<td class="r data">&#160;</td>
+<td class="r data">&#160;</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Corrected Total</th>
+<td class="r data">23748</td>
+<td class="r data">356871988</td>
+<td class="r data">&#160;</td>
+<td class="r data">&#160;</td>
+<td class="r data">&#160;</td>
+</tr>
+</tbody>
+</table>
+</article>
+<article id="IDX6" aria-label="Fit Statistics">
+<h1 class="contentitem toc">Fit Statistics</h1>
+<table class="table" style="border-spacing: 0" aria-label="Fit Statistics">
+<caption aria-label="Fit Statistics"></caption>
+<colgroup><col/><col/></colgroup>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">Root MSE</th>
+<td class="r data">105.67768</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Dependent Mean</th>
+<td class="r data">159.04468</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">R-Square</th>
+<td class="r data">0.2599</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">Adj R-Sq</th>
+<td class="r data">0.2568</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">AIC</th>
+<td class="r data">245208</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">AICC</th>
+<td class="r data">245209</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">SBC</th>
+<td class="r data">222249</td>
+</tr>
+</tbody>
+</table>
+</article>
+<article id="IDX7" aria-label="Parameter Estimates">
+<h1 class="contentitem toc">Parameter Estimates</h1>
+<table class="table" style="border-spacing: 0" aria-label="Parameter Estimates">
+<caption aria-label="Parameter Estimates"></caption>
+<colgroup><col/></colgroup><colgroup><col/><col/><col/><col/><col/></colgroup>
+<thead>
+<tr>
+<th class="c b header" colspan="6" scope="colgroup">Parameter Estimates</th>
+</tr>
+<tr>
+<th class="b header" scope="col">Parameter</th>
+<th class="r b header" scope="col">DF</th>
+<th class="r b header" scope="col">Estimate</th>
+<th class="r b header" scope="col">Standard<br/>Error</th>
+<th class="r b header" scope="col">t&#160;Value</th>
+<th class="r b header" scope="col">Pr&#160;&gt;&#160;|t|</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="rowheader" scope="row">Intercept</th>
+<td class="r data">1</td>
+<td class="r data">68.512987</td>
+<td class="r data">8.515750</td>
+<td class="r data">8.05</td>
+<td class="r data">&lt;.0001</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY _REGION&apos;   Chelsea</th>
+<td class="r data">1</td>
+<td class="r data">10.836411</td>
+<td class="r data">14.389909</td>
+<td class="r data">0.75</td>
+<td class="r data">0.4514</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY _REGION&apos;   Downtown</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-4.782218</td>
+<td class="r data">16.949421</td>
+<td class="r data" style="white-space: nowrap">-0.28</td>
+<td class="r data">0.7778</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY _REGION&apos;   Eastside</th>
+<td class="r data">1</td>
+<td class="r data">30.845987</td>
+<td class="r data">18.943895</td>
+<td class="r data">1.63</td>
+<td class="r data">0.1035</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY _REGION&apos;   Westside</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE            Bottom_Closet</th>
+<td class="r data">1</td>
+<td class="r data">20.401075</td>
+<td class="r data">12.639867</td>
+<td class="r data">1.61</td>
+<td class="r data">0.1065</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE            Middle_Closet</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-6.897602</td>
+<td class="r data">30.521754</td>
+<td class="r data" style="white-space: nowrap">-0.23</td>
+<td class="r data">0.8212</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE            Regular_Room</th>
+<td class="r data">1</td>
+<td class="r data">122.874208</td>
+<td class="r data">9.462666</td>
+<td class="r data">12.99</td>
+<td class="r data">&lt;.0001</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE            Top_Closet</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">MEDIA_CHANNEL        MMS_WEB_SITE</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-17.237125</td>
+<td class="r data">16.280842</td>
+<td class="r data" style="white-space: nowrap">-1.06</td>
+<td class="r data">0.2897</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">MEDIA_CHANNEL        NEW_YORK_TIMES</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-3.155844</td>
+<td class="r data">29.499425</td>
+<td class="r data" style="white-space: nowrap">-0.11</td>
+<td class="r data">0.9148</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">MEDIA_CHANNEL        OTHER</th>
+<td class="r data">1</td>
+<td class="r data">13.483268</td>
+<td class="r data">9.665994</td>
+<td class="r data">1.39</td>
+<td class="r data">0.1631</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">MEDIA_CHANNEL        SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-1.316750</td>
+<td class="r data">10.126149</td>
+<td class="r data" style="white-space: nowrap">-0.13</td>
+<td class="r data">0.8965</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">MEDIA_CHANNEL        TENANT_REFERRAL</th>
+<td class="r data">1</td>
+<td class="r data">2.569205</td>
+<td class="r data">10.154538</td>
+<td class="r data">0.25</td>
+<td class="r data">0.8003</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">MEDIA_CHANNEL        VAL_PAK</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-2.262987</td>
+<td class="r data">16.082523</td>
+<td class="r data" style="white-space: nowrap">-0.14</td>
+<td class="r data">0.8881</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">MEDIA_CHANNEL        YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY *ROOM_TYPE Chelsea Bottom_Closet</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-10.370726</td>
+<td class="r data">20.872995</td>
+<td class="r data" style="white-space: nowrap">-0.50</td>
+<td class="r data">0.6193</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY *ROOM_TYPE Chelsea Middle_Closet</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-11.451795</td>
+<td class="r data">43.876969</td>
+<td class="r data" style="white-space: nowrap">-0.26</td>
+<td class="r data">0.7941</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY *ROOM_TYPE Chelsea Regular_Room</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-18.999063</td>
+<td class="r data">15.913900</td>
+<td class="r data" style="white-space: nowrap">-1.19</td>
+<td class="r data">0.2325</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY *ROOM_TYPE Chelsea Top_Closet</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY *ROOM_TYPE Downtown Bottom_Closet</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-3.709310</td>
+<td class="r data">23.061303</td>
+<td class="r data" style="white-space: nowrap">-0.16</td>
+<td class="r data">0.8722</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY *ROOM_TYPE Downtown Middle_Closet</th>
+<td class="r data">1</td>
+<td class="r data">44.916833</td>
+<td class="r data">62.755761</td>
+<td class="r data">0.72</td>
+<td class="r data">0.4742</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY *ROOM_TYPE Downtown Regular_Room</th>
+<td class="r data">1</td>
+<td class="r data">15.472761</td>
+<td class="r data">18.541009</td>
+<td class="r data">0.83</td>
+<td class="r data">0.4040</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY *ROOM_TYPE Downtown Top_Closet</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY *ROOM_TYPE Eastside Bottom_Closet</th>
+<td class="r data">1</td>
+<td class="r data">19.598925</td>
+<td class="r data">27.064230</td>
+<td class="r data">0.72</td>
+<td class="r data">0.4690</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY *ROOM_TYPE Eastside Regular_Room</th>
+<td class="r data">1</td>
+<td class="r data">77.320009</td>
+<td class="r data">21.333056</td>
+<td class="r data">3.62</td>
+<td class="r data">0.0003</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY *ROOM_TYPE Eastside Top_Closet</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY *ROOM_TYPE Westside Bottom_Closet</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY *ROOM_TYPE Westside Middle_Closet</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY *ROOM_TYPE Westside Regular_Room</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY *ROOM_TYPE Westside Top_Closet</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Chelsea MMS_WEB_SITE</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-2.459211</td>
+<td class="r data">25.050570</td>
+<td class="r data" style="white-space: nowrap">-0.10</td>
+<td class="r data">0.9218</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Chelsea NEW_YORK_TIMES</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-14.011735</td>
+<td class="r data">44.944629</td>
+<td class="r data" style="white-space: nowrap">-0.31</td>
+<td class="r data">0.7552</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Chelsea OTHER</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-4.674850</td>
+<td class="r data">15.650223</td>
+<td class="r data" style="white-space: nowrap">-0.30</td>
+<td class="r data">0.7652</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Chelsea SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-1.256946</td>
+<td class="r data">17.008123</td>
+<td class="r data" style="white-space: nowrap">-0.07</td>
+<td class="r data">0.9411</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Chelsea TENANT_REFERRAL</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-7.039926</td>
+<td class="r data">16.695033</td>
+<td class="r data" style="white-space: nowrap">-0.42</td>
+<td class="r data">0.6733</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Chelsea VAL_PAK</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-8.260324</td>
+<td class="r data">29.643792</td>
+<td class="r data" style="white-space: nowrap">-0.28</td>
+<td class="r data">0.7805</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Chelsea YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Downtown MMS_WEB_SITE</th>
+<td class="r data">1</td>
+<td class="r data">3.923022</td>
+<td class="r data">28.107768</td>
+<td class="r data">0.14</td>
+<td class="r data">0.8890</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Downtown NEW_YORK_TIMES</th>
+<td class="r data">1</td>
+<td class="r data">2.501998</td>
+<td class="r data">44.091274</td>
+<td class="r data">0.06</td>
+<td class="r data">0.9547</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Downtown OTHER</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-18.176199</td>
+<td class="r data">19.197985</td>
+<td class="r data" style="white-space: nowrap">-0.95</td>
+<td class="r data">0.3438</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Downtown SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-4.083786</td>
+<td class="r data">19.215798</td>
+<td class="r data" style="white-space: nowrap">-0.21</td>
+<td class="r data">0.8317</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Downtown TENANT_REFERRAL</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-9.388863</td>
+<td class="r data">19.491606</td>
+<td class="r data" style="white-space: nowrap">-0.48</td>
+<td class="r data">0.6300</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Downtown VAL_PAK</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-15.280282</td>
+<td class="r data">28.677610</td>
+<td class="r data" style="white-space: nowrap">-0.53</td>
+<td class="r data">0.5942</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Downtown YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Eastside MMS_WEB_SITE</th>
+<td class="r data">1</td>
+<td class="r data">17.544817</td>
+<td class="r data">32.912273</td>
+<td class="r data">0.53</td>
+<td class="r data">0.5940</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Eastside NEW_YORK_TIMES</th>
+<td class="r data">1</td>
+<td class="r data">15.412254</td>
+<td class="r data">44.895754</td>
+<td class="r data">0.34</td>
+<td class="r data">0.7314</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Eastside OTHER</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-10.979497</td>
+<td class="r data">24.469584</td>
+<td class="r data" style="white-space: nowrap">-0.45</td>
+<td class="r data">0.6537</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Eastside SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">1</td>
+<td class="r data">5.088211</td>
+<td class="r data">21.406941</td>
+<td class="r data">0.24</td>
+<td class="r data">0.8121</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Eastside TENANT_REFERRAL</th>
+<td class="r data">1</td>
+<td class="r data">10.833726</td>
+<td class="r data">21.179154</td>
+<td class="r data">0.51</td>
+<td class="r data">0.6090</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Eastside VAL_PAK</th>
+<td class="r data">1</td>
+<td class="r data">4.529013</td>
+<td class="r data">31.785603</td>
+<td class="r data">0.14</td>
+<td class="r data">0.8867</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Eastside YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Westside MMS_WEB_SITE</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Westside NEW_YORK_TIMES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Westside OTHER</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Westside SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Westside TENANT_REFERRAL</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Westside VAL_PAK</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACILITY*MEDIA_CHAN Westside YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Bottom_Closet MMS_WEB_SITE</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-4.790145</td>
+<td class="r data">23.728185</td>
+<td class="r data" style="white-space: nowrap">-0.20</td>
+<td class="r data">0.8400</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Bottom_Closet NEW_YORK_TIMES</th>
+<td class="r data">1</td>
+<td class="r data">0.384639</td>
+<td class="r data">38.590971</td>
+<td class="r data">0.01</td>
+<td class="r data">0.9920</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Bottom_Closet OTHER</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-9.340783</td>
+<td class="r data">14.625905</td>
+<td class="r data" style="white-space: nowrap">-0.64</td>
+<td class="r data">0.5231</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Bottom_Closet SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-8.276557</td>
+<td class="r data">15.229237</td>
+<td class="r data" style="white-space: nowrap">-0.54</td>
+<td class="r data">0.5868</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Bottom_Closet TENANT_REFERRAL</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-8.543654</td>
+<td class="r data">14.742394</td>
+<td class="r data" style="white-space: nowrap">-0.58</td>
+<td class="r data">0.5622</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Bottom_Closet VAL_PAK</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-11.010050</td>
+<td class="r data">25.144561</td>
+<td class="r data" style="white-space: nowrap">-0.44</td>
+<td class="r data">0.6615</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Bottom_Closet YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Middle_Closet MMS_WEB_SITE</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-8.303664</td>
+<td class="r data">111.307222</td>
+<td class="r data" style="white-space: nowrap">-0.07</td>
+<td class="r data">0.9405</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Middle_Closet OTHER</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-15.298652</td>
+<td class="r data">35.095373</td>
+<td class="r data" style="white-space: nowrap">-0.44</td>
+<td class="r data">0.6629</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Middle_Closet SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-1.409745</td>
+<td class="r data">37.083953</td>
+<td class="r data" style="white-space: nowrap">-0.04</td>
+<td class="r data">0.9697</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Middle_Closet TENANT_REFERRAL</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-6.470304</td>
+<td class="r data">41.950830</td>
+<td class="r data" style="white-space: nowrap">-0.15</td>
+<td class="r data">0.8774</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Middle_Closet VAL_PAK</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-2.352398</td>
+<td class="r data">57.890082</td>
+<td class="r data" style="white-space: nowrap">-0.04</td>
+<td class="r data">0.9676</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Middle_Closet YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Regular_Room MMS_WEB_SITE</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-5.453296</td>
+<td class="r data">18.818608</td>
+<td class="r data" style="white-space: nowrap">-0.29</td>
+<td class="r data">0.7720</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Regular_Room NEW_YORK_TIMES</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-44.989593</td>
+<td class="r data">31.779914</td>
+<td class="r data" style="white-space: nowrap">-1.42</td>
+<td class="r data">0.1569</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Regular_Room OTHER</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-9.731417</td>
+<td class="r data">10.778937</td>
+<td class="r data" style="white-space: nowrap">-0.90</td>
+<td class="r data">0.3666</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Regular_Room SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-11.620746</td>
+<td class="r data">11.365100</td>
+<td class="r data" style="white-space: nowrap">-1.02</td>
+<td class="r data">0.3066</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Regular_Room TENANT_REFERRAL</th>
+<td class="r data">1</td>
+<td class="r data">0.409915</td>
+<td class="r data">11.240394</td>
+<td class="r data">0.04</td>
+<td class="r data">0.9709</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Regular_Room VAL_PAK</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-35.353938</td>
+<td class="r data">18.738450</td>
+<td class="r data" style="white-space: nowrap">-1.89</td>
+<td class="r data">0.0592</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Regular_Room YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Top_Closet MMS_WEB_SITE</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Top_Closet NEW_YORK_TIMES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Top_Closet OTHER</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Top_Closet SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Top_Closet TENANT_REFERRAL</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Top_Closet VAL_PAK</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">ROOM_TYPE*MEDIA_CHAN Top_Closet YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Bottom_Closet MMS_WEB_SITE</th>
+<td class="r data">1</td>
+<td class="r data">21.948840</td>
+<td class="r data">40.677189</td>
+<td class="r data">0.54</td>
+<td class="r data">0.5895</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Bottom_Closet NEW_YORK_TIMES</th>
+<td class="r data">1</td>
+<td class="r data">17.069860</td>
+<td class="r data">68.130216</td>
+<td class="r data">0.25</td>
+<td class="r data">0.8022</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Bottom_Closet OTHER</th>
+<td class="r data">1</td>
+<td class="r data">0.208895</td>
+<td class="r data">23.042396</td>
+<td class="r data">0.01</td>
+<td class="r data">0.9928</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Bottom_Closet SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">1</td>
+<td class="r data">7.645264</td>
+<td class="r data">24.783941</td>
+<td class="r data">0.31</td>
+<td class="r data">0.7577</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Bottom_Closet TENANT_REFERRAL</th>
+<td class="r data">1</td>
+<td class="r data">8.127485</td>
+<td class="r data">23.962403</td>
+<td class="r data">0.34</td>
+<td class="r data">0.7345</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Bottom_Closet VAL_PAK</th>
+<td class="r data">1</td>
+<td class="r data">3.296471</td>
+<td class="r data">43.880733</td>
+<td class="r data">0.08</td>
+<td class="r data">0.9401</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Bottom_Closet YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Middle_Closet MMS_WEB_SITE</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Middle_Closet OTHER</th>
+<td class="r data">1</td>
+<td class="r data">7.400949</td>
+<td class="r data">49.413229</td>
+<td class="r data">0.15</td>
+<td class="r data">0.8809</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Middle_Closet SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">1</td>
+<td class="r data">0.895207</td>
+<td class="r data">52.435487</td>
+<td class="r data">0.02</td>
+<td class="r data">0.9864</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Middle_Closet TENANT_REFERRAL</th>
+<td class="r data">1</td>
+<td class="r data">5.404439</td>
+<td class="r data">55.379832</td>
+<td class="r data">0.10</td>
+<td class="r data">0.9223</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Middle_Closet VAL_PAK</th>
+<td class="r data">1</td>
+<td class="r data">12.764597</td>
+<td class="r data">77.918493</td>
+<td class="r data">0.16</td>
+<td class="r data">0.8699</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Middle_Closet YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Regular_Room MMS_WEB_SITE</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-18.320525</td>
+<td class="r data">29.046976</td>
+<td class="r data" style="white-space: nowrap">-0.63</td>
+<td class="r data">0.5282</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Regular_Room NEW_YORK_TIMES</th>
+<td class="r data">1</td>
+<td class="r data">45.638511</td>
+<td class="r data">50.173589</td>
+<td class="r data">0.91</td>
+<td class="r data">0.3630</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Regular_Room OTHER</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-11.659366</td>
+<td class="r data">17.448189</td>
+<td class="r data" style="white-space: nowrap">-0.67</td>
+<td class="r data">0.5040</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Regular_Room SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">1</td>
+<td class="r data">2.721927</td>
+<td class="r data">18.920945</td>
+<td class="r data">0.14</td>
+<td class="r data">0.8856</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Regular_Room TENANT_REFERRAL</th>
+<td class="r data">1</td>
+<td class="r data">6.072700</td>
+<td class="r data">18.370970</td>
+<td class="r data">0.33</td>
+<td class="r data">0.7410</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Regular_Room VAL_PAK</th>
+<td class="r data">1</td>
+<td class="r data">8.896295</td>
+<td class="r data">33.816736</td>
+<td class="r data">0.26</td>
+<td class="r data">0.7925</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Regular_Room YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Top_Closet MMS_WEB_SITE</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Top_Closet NEW_YORK_TIMES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Top_Closet OTHER</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Top_Closet SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Top_Closet TENANT_REFERRAL</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Top_Closet VAL_PAK</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Chelsea Top_Closet YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Bottom_Closet MMS_WEB_SITE</th>
+<td class="r data">1</td>
+<td class="r data">7.881712</td>
+<td class="r data">48.601208</td>
+<td class="r data">0.16</td>
+<td class="r data">0.8712</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Bottom_Closet NEW_YORK_TIMES</th>
+<td class="r data">1</td>
+<td class="r data">0.246672</td>
+<td class="r data">70.384192</td>
+<td class="r data">0.00</td>
+<td class="r data">0.9972</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Bottom_Closet OTHER</th>
+<td class="r data">1</td>
+<td class="r data">7.803725</td>
+<td class="r data">26.752681</td>
+<td class="r data">0.29</td>
+<td class="r data">0.7705</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Bottom_Closet SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">1</td>
+<td class="r data">9.308725</td>
+<td class="r data">26.504012</td>
+<td class="r data">0.35</td>
+<td class="r data">0.7254</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Bottom_Closet TENANT_REFERRAL</th>
+<td class="r data">1</td>
+<td class="r data">9.148404</td>
+<td class="r data">26.434066</td>
+<td class="r data">0.35</td>
+<td class="r data">0.7293</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Bottom_Closet VAL_PAK</th>
+<td class="r data">1</td>
+<td class="r data">20.818284</td>
+<td class="r data">45.291115</td>
+<td class="r data">0.46</td>
+<td class="r data">0.6458</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Bottom_Closet YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Middle_Closet SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">1</td>
+<td class="r data">5.260282</td>
+<td class="r data">81.654304</td>
+<td class="r data">0.06</td>
+<td class="r data">0.9486</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Middle_Closet TENANT_REFERRAL</th>
+<td class="r data">1</td>
+<td class="r data">13.206628</td>
+<td class="r data">92.472777</td>
+<td class="r data">0.14</td>
+<td class="r data">0.8864</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Middle_Closet YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Regular_Room MMS_WEB_SITE</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-13.754784</td>
+<td class="r data">31.968550</td>
+<td class="r data" style="white-space: nowrap">-0.43</td>
+<td class="r data">0.6670</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Regular_Room NEW_YORK_TIMES</th>
+<td class="r data">1</td>
+<td class="r data">10.325700</td>
+<td class="r data">50.694775</td>
+<td class="r data">0.20</td>
+<td class="r data">0.8386</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Regular_Room OTHER</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-3.639501</td>
+<td class="r data">21.125567</td>
+<td class="r data" style="white-space: nowrap">-0.17</td>
+<td class="r data">0.8632</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Regular_Room SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">1</td>
+<td class="r data">1.561030</td>
+<td class="r data">21.107027</td>
+<td class="r data">0.07</td>
+<td class="r data">0.9410</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Regular_Room TENANT_REFERRAL</th>
+<td class="r data">1</td>
+<td class="r data">14.951711</td>
+<td class="r data">21.266616</td>
+<td class="r data">0.70</td>
+<td class="r data">0.4820</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Regular_Room VAL_PAK</th>
+<td class="r data">1</td>
+<td class="r data">2.098880</td>
+<td class="r data">33.445199</td>
+<td class="r data">0.06</td>
+<td class="r data">0.9500</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Regular_Room YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Top_Closet MMS_WEB_SITE</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Top_Closet NEW_YORK_TIMES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Top_Closet OTHER</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Top_Closet SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Top_Closet TENANT_REFERRAL</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Top_Closet VAL_PAK</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Downtown Top_Closet YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Bottom_Closet MMS_WEB_SITE</th>
+<td class="r data">1</td>
+<td class="r data">1.067923</td>
+<td class="r data">47.832662</td>
+<td class="r data">0.02</td>
+<td class="r data">0.9822</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Bottom_Closet NEW_YORK_TIMES</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-10.323553</td>
+<td class="r data">57.004322</td>
+<td class="r data" style="white-space: nowrap">-0.18</td>
+<td class="r data">0.8563</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Bottom_Closet OTHER</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-5.089530</td>
+<td class="r data">36.158416</td>
+<td class="r data" style="white-space: nowrap">-0.14</td>
+<td class="r data">0.8881</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Bottom_Closet SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">1</td>
+<td class="r data">4.397778</td>
+<td class="r data">30.788956</td>
+<td class="r data">0.14</td>
+<td class="r data">0.8864</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Bottom_Closet TENANT_REFERRAL</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-8.502734</td>
+<td class="r data">29.954468</td>
+<td class="r data" style="white-space: nowrap">-0.28</td>
+<td class="r data">0.7765</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Bottom_Closet VAL_PAK</th>
+<td class="r data">1</td>
+<td class="r data">2.940605</td>
+<td class="r data">45.649757</td>
+<td class="r data">0.06</td>
+<td class="r data">0.9486</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Bottom_Closet YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Regular_Room MMS_WEB_SITE</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-10.940921</td>
+<td class="r data">38.725556</td>
+<td class="r data" style="white-space: nowrap">-0.28</td>
+<td class="r data">0.7775</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Regular_Room NEW_YORK_TIMES</th>
+<td class="r data">1</td>
+<td class="r data">16.973642</td>
+<td class="r data">49.110547</td>
+<td class="r data">0.35</td>
+<td class="r data">0.7296</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Regular_Room OTHER</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-43.907363</td>
+<td class="r data">28.323910</td>
+<td class="r data" style="white-space: nowrap">-1.55</td>
+<td class="r data">0.1211</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Regular_Room SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">1</td>
+<td class="r data">2.957699</td>
+<td class="r data">24.255162</td>
+<td class="r data">0.12</td>
+<td class="r data">0.9029</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Regular_Room TENANT_REFERRAL</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-11.394120</td>
+<td class="r data">23.761908</td>
+<td class="r data" style="white-space: nowrap">-0.48</td>
+<td class="r data">0.6316</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Regular_Room VAL_PAK</th>
+<td class="r data">1</td>
+<td class="r data" style="white-space: nowrap">-6.252513</td>
+<td class="r data">37.677882</td>
+<td class="r data" style="white-space: nowrap">-0.17</td>
+<td class="r data">0.8682</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Regular_Room YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Top_Closet MMS_WEB_SITE</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Top_Closet NEW_YORK_TIMES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Top_Closet OTHER</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Top_Closet SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Top_Closet TENANT_REFERRAL</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Top_Closet VAL_PAK</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Eastside Top_Closet YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Bottom_Closet MMS_WEB_SITE</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Bottom_Closet NEW_YORK_TIMES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Bottom_Closet OTHER</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Bottom_Closet SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Bottom_Closet TENANT_REFERRAL</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Bottom_Closet VAL_PAK</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Bottom_Closet YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Middle_Closet OTHER</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Middle_Closet SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Middle_Closet TENANT_REFERRAL</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Middle_Closet VAL_PAK</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Middle_Closet YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Regular_Room MMS_WEB_SITE</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Regular_Room NEW_YORK_TIMES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Regular_Room OTHER</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Regular_Room SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Regular_Room TENANT_REFERRAL</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Regular_Room VAL_PAK</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Regular_Room YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Top_Closet MMS_WEB_SITE</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Top_Closet NEW_YORK_TIMES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Top_Closet OTHER</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Top_Closet SAW_SIGNS_/_BILLBOARDS</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Top_Closet TENANT_REFERRAL</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Top_Closet VAL_PAK</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+<tr>
+<th class="rowheader" scope="row">&apos;FACIL*ROOM_T*MEDIA_ Westside Top_Closet YELLOW_PAGES</th>
+<td class="r data">0</td>
+<td class="r data">0</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+<td class="r data">.</td>
+</tr>
+</tbody>
+</table>
+</article>
+</section>
+</section>
+<section data-name="Reg" data-sec-type="proc">
+</section>
+</div>
+</body>
+</html>
